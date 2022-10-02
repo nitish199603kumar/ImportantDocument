@@ -1,0 +1,200 @@
+oracle jdk 8
+mongo Db
+mysql
+MySqlWorkbench
+gradle 4.4.1
+maven
+sts
+
+ascend Swagger link- https://smartbuyadminuat.reward360.in/ascenda/swagger-ui/#/
+Oracle Java8 link- https://www.fosstechnix.com/
+
+								---------For GITLAB-------
+	***************************First Time Commit***************
+
+	create New Folder and add files
+	open terminal from folder
+	git init
+	git status
+	git remote add origin https://github.com/nitish199603kumar/ImportantDocument.git
+	git push origin master
+	
+	git checkout -b nitish
+	git push origin [name_of_your_new_branch]
+	git branch nitish
+	git push origin niish	
+
+
+	cd /project/ascenda
+	git status
+	git add <file>
+	git checkout -b origin/nitishascenda ===>move from one branch to another
+	git checkout src/main/java/com/r360/ascenda/controller/LoyaltyProgramController.java  ===>if we dont want to add or commit file
+
+	
+	git branch -a ====>check all branch
+	git branch -d origin/nitishascenda ===>Delete branch
+	vi .factorypath ===>check factoryfile
+	git branch nk_ascenda ===> create branch
+	git branch ===>branh details
+	git commit -m "add health endpoint" ===>commit in local repository
+	git reset --hard HEAD ===>Unstaged local changes
+	git pull origin branch-name ===> Pull the code from specific branch
+	git branch -a ===>try to see all branch present in gitlab
+	git log ===>for check the History
+	git push -u origin master=====>
+	git rm --cashed *===============>to unstage all file
+	git rm --cashed <file-name>==========>to unstage specific file.
+	
+	git  checkout ascendanitish ===>My new branch
+
+---------For Project Lombok-----
+-javaagent:/home/nitish.kumar@reward360.local/software/spring-tool-suite-4-4.15.3.RELEASE-e4.24.0-linux.gtk.x86_64/sts-4.15.3.RELEASE
+
+mvn clean install -Dskip=true
+mvn test
+
+9962838138---Vignesh Sir
+Jira Link-https://lms-rewards360.atlassian.net/jira/software/c/projects/HDD/boards/132
+
+---------For start open vpn-------
+
+		nitish.kumar@reward360.local@R36001UL0249:~/Downloads$ sudo openvpn --config StagingVPN-nitish.kumar@reward360.co.ovpn 
+
+--------How to start any  server----------
+
+	chmod 400 stagingR360SBKeyPair.pem --------Staging into 
+	ssh -i stagingR360SBKeyPair.pem centos@10.80.2.20-----for starting the server
+	sudo su
+	ll
+-------ascenda Server-----
+	ssh -i stagingR360SBKeyPair.pem centos@10.80.2.218
+	cd /var/lib/tomcat7/ascenda/
+	ls -ltr
+	
+-------Working with log files-------
+
+        downloads/ ssh -i stagingR360SBKeyPair.pem centos@10.80.2.218
+        sudo su ====>Goto Super means centos
+        [root@stagingr360sbsdkamsapiserver centos]# cd /var/lib/tomcat7/apache-tomcat-9.0.63/ ====>our all project log files(war file)
+        [root@stagingr360sbsdkamsapiserver apache-tomcat-9.0.63]# cd webapps/ ===>All war file available in webapps/also jar
+        ll -ltr	
+        cd
+        [root@stagingr360sbsdkamsapiserver apache-tomcat-9.0.63]# cd logs/ ====>show all logs
+        [root@stagingr360sbsdkamsapiserver centos]# cd /var/lib/tomcat7/ascenda/ ====>ascenda jar file
+        ./commandText ====>for run the server
+        tail -500f ascenda.log
+        
+        
+        when we have jar files then logs will be available with application_name.log like-ascenda.log BUT
+        When we have war files then logs will be available in catalina.out.
+         
+
+	cd /var/log  ==>System log files
+	pwd =========>Present working directory
+	ls ==========>Show list of log files
+	ls -l =======>Its also show the log files
+	tailf <log-file-name> ====>check the content of log file 
+
+=================for Deploy on UAT===============
+	when we want to see our changes in Server/swagger file each time we build a jar file and copy that jar file from target folder
+	and paste,where .pem file is present.
+	
+	copy the jar file from target and paste where .pem file is present
+	scp -i stagingR360SBKeyPair.pem ascenda-0.0.1-SNAPSHOT.jar centos@10.80.2.218:~/
+	downloads/ ssh -i stagingR360SBKeyPair.pem centos@10.80.2.218
+	sudo su  ===>For super server
+	ls -ltr  ===>your jar file in present in the last in all list
+	cp ascenda-0.0.1-SNAPSHOT.jar /var/lib/tomcat7/ascenda/ =====>msg for override for old jar file(Checking Purpose)---click yes
+	cd /var/lib/tomcat7/ascenda/
+	ls -ltr
+	./commandText ====>for start the server or jar
+	tail -500f ascenda.log=====For log check
+	
+	-----------for extra info-------------------------------------------
+	^Z
+		[1]+  Stopped                 tail -500f ascenda.log
+		[root@stagingr360sbsdkamsapiserver ascenda]# ps -ef | grep ascenda
+		root       732  2611  0 17:30 pts/1    00:00:00 tail -500f ascenda.log ===>log files is running on 732 port
+		root       988     1  0 17:31 ?        00:00:47 /home/tomcat/jdk1.8.0_331/bin/java -DROOT_DIR=/var/lib/tomcat7/ascenda/ -DCONF_FILE=/var/lib/tomcat7/ascenda/application.properties -jar -DJSYPTDBPWD=r360pk%# ascenda-0.0.1-SNAPSHOT.jar
+		===>Here our jar file is running on port no 988.if already port is busy now we need to kill the server
+		
+		root      1101  2611  0 17:31 pts/1    00:00:00 tail -500f ascenda.log
+		root     27198 26644  0 18:54 pts/2    00:00:00 tail -500f ascenda.log
+		root     27386 26644  0 18:54 pts/2    00:00:00 grep --color=auto ascenda
+		[root@stagingr360sbsdkamsapiserver ascenda]# 
+		
+-----------------------------------------------------------------------------
+	[root@stagingr360sbsdkamsapiserver ascenda]# ps -ef | grep ascenda ====>whatever port No Server is running we will stop that
+	[root@stagingr360sbsdkamsapiserver ascenda]# kill -9 988  ===>kill that server
+	
+
+
+------------------------------------For Gradle-----------------------------------------------------------------------
+	gradle -version
+	gradle build -x test=====>for gradle Build
+	gradle test===============>for test purpose
+	gradle clean
+	cd bin/
+	ll bin/
+	ll build===>for checking war file
+	which gradle=====>where is gradle file
+	ll <gradle destination>===>(gradle destination--/opt/gradle/latest/bin/gradle---it may or may not be)
+	ll /opt/gradle/
+	
+		
+***********************************************************Flight********************************************************************
+flight UAT===>https://smartbuydev.reward360.in/v1/
+https://smartbuydev.reward360.in/v1/
+	
+-----------------------deploy on local tomcat process-------------------------------------
+
+	copy/cut war file from flight(or project) /project/flights/build/lib/
+	
+	paste that war file into localhot server webapps folder and open terminal from here
+	nitish.kumar@reward360.local@R36001UL0249:~/Downloads/82-server$ 
+	
+	for start the server goto bin folder
+	nitish.kumar@reward360.local@R36001UL0249:~/Downloads/82-server$ cd bin/
+	nitish.kumar@reward360.local@R36001UL0249:~/Downloads/82-server/bin$ ./startup.sh ===>for start the server
+	nitish.kumar@reward360.local@R36001UL0249:~/Downloads/82-server/bin$ cd ../logs/====>for logs check go to logs
+	nitish.kumar@reward360.local@R36001UL0249:~/Downloads/82-server/logs$ tail -50f catalina.out====>for print the logs from bottom 
+	nitish.kumar@reward360.local@R36001UL0249:~/Downloads/82-server/logs$ ps -ef|grep tomcat ====>for forcely kill the server
+	
+	tomcat     32311       1  0 11:38 ?        00:00:21 /usr/lib/jvm/default-java/bin/java -Djava.util.logging.config.file=/var/lib/tomcat9/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.awt.headless=true -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Dignore.endorsed.dirs= -classpath /usr/share/tomcat9/bin/bootstrap.jar:/usr/share/tomcat9/bin/tomcat-juli.jar -Dcatalina.base=/var/lib/tomcat9 -Dcatalina.home=/usr/share/tomcat9 -Djava.io.tmpdir=/tmp org.apache.catalina.startup.Bootstrap start
+nitish.+   39841    4594  7 12:36 pts/3    00:00:43 /opt/jdk/jdk1.8.0_311/jre/bin/java -Djava.util.logging.config.file=/home/nitish.kumar@reward360.local/Downloads/82-server/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Djava.protocol.handler.
+
+nitish.kumar@reward360.local@R36001UL0249:~/Downloads/82-server/logs$ kill -9 39841 =====kill that server
+agian goto bin and start the server above command and check the logs 
+
+also trying to open local swagger in to chrome.
+http://localhost:8080/flights/swagger-ui/
+
+
+*******************************************************For Backup********************************************************
+[root@stagingr360sbsdkamsapiserver centos]# mkdir nitesh9sep
+[root@stagingr360sbsdkamsapiserver centos]# cp flights.war nitesh9sep/
+[root@stagingr360sbsdkamsapiserver centos]# cd nitesh9sep/
+[root@stagingr360sbsdkamsapiserver nitesh9sep]# ll
+total 131008
+-rw-r--r-- 1 root root 68309634 Sep  9 19:13 flights.war
+[root@stagingr360sbsdkamsapiserver nitesh9sep]# cd centos
+bash: cd: centos: No such file or directory
+[root@stagingr360sbsdkamsapiserver nitesh9sep]# super su
+bash: super: command not found
+[root@stagingr360sbsdkamsapiserver nitesh9sep]# 
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
