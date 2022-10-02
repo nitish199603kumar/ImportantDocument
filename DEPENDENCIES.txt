@@ -70,7 +70,7 @@ To see the port No in MySql WorkBench==== SHOW GLOBAL VARIABLES LIKE 'PORT'---OU
 			<groupId>org.springframework.boot</groupId>   
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+				spring.port:9090
 				spring.data.mongodb.host=localhost
 				spring.data.mongodb.port:27017
 				spring.data.mongodb.database:database-name
